@@ -78,6 +78,7 @@ def is_spotify(raw_song):
     status = status or raw_song.find('spotify') > -1
     return status
 
+
 def is_youtube(raw_song):
     """Check if the input song is a YouTube link."""
     status = len(raw_song) == 11 and raw_song.replace(" ", "%20") == raw_song
@@ -129,14 +130,15 @@ def grace_quit():
     print('\n\nExiting.')
     sys.exit(0)
 
+
 def get_sec(time_str):
-   v = time_str.split(':', 3)
-   v.reverse()
-   sec = 0
-   if len(v) > 0: #seconds
-       sec += int(v[0])
-   if len(v) > 1: # minutes
-       sec += int(v[1]) * 60
-   if len(v) > 2: # hours
-       sec += int(v[2]) * 3600
-   return sec
+    v = time_str.split(':', 3)
+    v.reverse()
+    sec = 0
+    if len(v) > 0:  # seconds
+        sec += int(v[0])
+    if len(v) > 1:  # minutes
+        sec += int(v[1]) * 60
+    if len(v) > 2:  # hours
+        sec += int(v[2]) * 3600
+    return sec

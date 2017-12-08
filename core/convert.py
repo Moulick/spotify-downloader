@@ -18,10 +18,9 @@ def song(input_song, output_song, folder, avconv=False, verbose=False):
         print('Converting {0} to {1}'.format(
             input_song, output_song.split('.')[-1]))
         if avconv:
-            exit_code = convert_with_avconv(input_song, output_song, folder, verbose)
+            return convert_with_avconv(input_song, output_song, folder, verbose)
         else:
-            exit_code = convert_with_ffmpeg(input_song, output_song, folder, verbose)
-        return exit_code
+            return convert_with_ffmpeg(input_song, output_song, folder, verbose)
     return 0
 
 
