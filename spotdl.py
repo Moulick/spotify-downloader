@@ -192,7 +192,7 @@ def feed_playlist(username):
     print('')
     playlist = misc.input_link(links)
     print('')
-    write_playlist(playlist)
+    write_playlist(playlist['owner']['id'], playlist['id'])
 
 
 def write_tracks(text_file, tracks):
@@ -236,10 +236,8 @@ def write_album(album):
 
 def download_song(file_name, content):
     """Download the audio file from YouTube."""
-    if args.input_ext == '.webm':
-        link = content.getbestaudio(preftype='webm')
-    elif args.input_ext == '.m4a':
-        link = content.getbestaudio(preftype='m4a')
+    if args.input_ext in (".webm", ".m4a"):
+        link = content.getbestaudio(preftype=args.input_ext[1:])
     else:
         return False
 
